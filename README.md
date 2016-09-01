@@ -5,7 +5,7 @@ Allele-Specific Expression by Single-Cell RNA Sequencing
 Yuchao Jiang, Nancy R. Zhang, Mingyao Li
 
 ## Maintainer
-Yuchao Jiang <yuchaoj@wharton.upenn.edu>
+Yuchao Jiang <yuchaoj@upenn.edu>
 
 ## Install the devel version from GitHub
 ```r
