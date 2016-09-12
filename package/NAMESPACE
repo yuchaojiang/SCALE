@@ -1,0 +1,3 @@
+export(allelic_kinetics, allelic_plot, diff_allelic_bursting, tech_bias,  Estep,
+       gene_classify, Mstep, non_ind_bursting, output_table, pb.moment)
+import(rje)
