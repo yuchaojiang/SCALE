@@ -26,22 +26,20 @@ head(colnames(spikein_input))
 ####################################################
 ####################################################
 
-source('SCALE/R/Estep.R')
-source('SCALE/R/Mstep.R')
-source('SCALE/R/gene_classify.R')
-
 # only first 10 genes are computed
 # for genome-wide results, parallel computing on HPC is recommended
 gene.class.obj=gene_classify(alleleA=alleleA[1:10,],alleleB=alleleB[1:10,])
-
-load('SCALE/data/gene.class.obj.rda')
 A.prop=gene.class.obj$A.prop
 B.prop=gene.class.obj$B.prop
 gene.category=gene.class.obj$gene.category
 results.list=gene.class.obj$results.list
-A.prop[1:10]
-B.prop[1:10]
-gene.category[1:10]
+
+
+data(gene.class.obj)
+A.prop=gene.class.obj$A.prop
+B.prop=gene.class.obj$B.prop
+gene.category=gene.class.obj$gene.category
+results.list=gene.class.obj$results.list
 
 
 ####################################################
@@ -52,7 +50,6 @@ gene.category[1:10]
 ####################################################
 ####################################################
 
-source('SCALE/R/tech_bias.R')
 abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
                alleleB = alleleB, pdf=TRUE)
 
@@ -65,16 +62,14 @@ abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA,
 ####################################################
 ####################################################
 
-source('SCALE/R/allelic_kinetics.R')
-source('SCALE/R/pb.moment.R')
 cellsize=rep(1,ncol(alleleA))  # cell size input
 allelic.kinetics.obj=allelic_kinetics(alleleA = alleleA[1:1000,], 
                                       alleleB = alleleB[1:1000,], 
                                       abkt = abkt, 
                                       gene.category = gene.category[1:1000], 
                                       cellsize = cellsize, pdf=TRUE)
-#save(allelic_kinetics.obj,file='allelic_kinetics.obj.rda',compress = 'xz')
-load('SCALE/data/allelic.kinetics.obj.rda')
+
+data(allelic.kinetics.obj)
 bandwidth=allelic.kinetics.obj$bandwidth
 konA=allelic.kinetics.obj$konA
 koffA=allelic.kinetics.obj$koffA
@@ -93,19 +88,17 @@ sizeB=sB/koffB
 ##########                                ##########
 ####################################################
 ####################################################
-source('SCALE/R/diff_allelic_bursting.R')
 diff.allelic.obj=diff_allelic_bursting(alleleA = alleleA,
                                         alleleB = alleleB,
                                         cellsize = cellsize,
                                         gene.category = gene.category,
                                         abkt = abkt,
                                         allelic.kinetics.obj = allelic.kinetics.obj,
-                                        mode='corrected')
-# save(diff.allelic.obj,file='diff.allelic.obj.rda',compress='xz')
+                                        mode = 'corrected')
+pval.kon = diff.allelic.obj$pval.kon; pval.size = diff.allelic.obj$pval.size
 
-load('SCALE/data/diff.allelic.obj.rda')
-pval.kon=diff.allelic.obj$pval.kon
-pval.size=diff.allelic.obj$pval.size
+data(diff.allelic.obj)
+pval.kon = diff.allelic.obj$pval.kon; pval.size = diff.allelic.obj$pval.size
 
 ####################################################
 ####################################################
@@ -115,7 +108,6 @@ pval.size=diff.allelic.obj$pval.size
 ####################################################
 ####################################################
 
-source('SCALE/R/non_ind_bursting.R')
 non.ind.obj=non_ind_bursting(alleleA = alleleA, alleleB = alleleB,
                              gene.category = gene.category,
                              results.list = results.list)
@@ -131,7 +123,6 @@ non.ind.type=non.ind.obj$non.ind.type
 ####################################################
 ####################################################
 
-source('SCALE/R/allelic_plot.R')
 i=which(genename=='Btf3l4')
 allelic_plot(alleleA = alleleA, alleleB = alleleB,
              gene.class.obj = gene.class.obj,
@@ -147,7 +138,6 @@ allelic_plot(alleleA = alleleA, alleleB = alleleB,
 ####################################################
 ####################################################
 
-source('SCALE/R/output_table.R')
 SCALE.output=output_table(alleleA=alleleA, alleleB=alleleB,
                           gene.class.obj = gene.class.obj,
                           allelic.kinetics.obj = allelic.kinetics.obj,
