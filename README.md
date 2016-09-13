@@ -1,21 +1,34 @@
 # SCALE
 Allele-Specific Expression by Single-Cell RNA Sequencing
 
+
 ## Author
 Yuchao Jiang, Nancy R. Zhang, Mingyao Li
+
 
 ## Maintainer
 Yuchao Jiang <yuchaoj@upenn.edu>
 
-## Install the devel version from GitHub
+
+## Description
+SCALE is a statistical framework for **s**ingle **c**ell **al**lelic **e**xpression analysis. SCALE estimates kinetic parameters that characterize the transcriptional bursting process at the allelic level, while accounting for technical bias and other complicating factors such as cell size. SCALE detects genes with significantly different bursting kinetics between the two alleles, as well as genes where the two alleles exhibit dependence in their bursting processes.
+
+
+## Installation
 ```r
 install.packages("devtools")
 library(devtools)
 install_github("yuchaojiang/SCALE/package")
 ```
 
-## Description
-SCALE is a statistical framework for **s**ingle **c**ell **al**lelic **e**xpression analysis. SCALE estimates kinetic parameters that characterize the transcriptional bursting process at the allelic level, while accounting for technical bias and other complicating factors such as cell size. SCALE detects genes with significantly different bursting kinetics between the two alleles, as well as genes where the two alleles exhibit dependence in their bursting processes.
+
+## Demo code & Vignettes
+* [Demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
+* [Vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
+
+
+## Google user group (Q&A)
+https://groups.google.com/forum/#!forum/SCALE_scRNAseq
 
 
 ## Citation
