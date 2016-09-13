@@ -28,7 +28,7 @@ install_github("yuchaojiang/SCALE/package")
 
 
 ## Google user group (Q&A)
-https://groups.google.com/forum/#!forum/SCALE_scRNAseq
+If you have any questions with the package, please feel free to post in our Google user group https://groups.google.com/d/forum/SCALE_scRNAseq or email us at SCALE_scRNAseq@googlegroups.com. We will try our best to reply as soon as possible.
 
 
 ## Citation
