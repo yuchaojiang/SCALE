@@ -34,6 +34,3 @@ If you have any questions with the package, please feel free to post in our Goog
 ## Citation
 Jiang, Y., Zhang, N.R., Li M., 2016. Modeling allele-specific gene expression by single-cell RNA sequencing. *Submitted*.
 
-
-## Google user group (Q&A)
-If you have any questions with the package, please feel free to post in our Google user group https://groups.google.com/d/forum/SCALE_scRNAseq or email us at SCALE_scRNAseq@googlegroups.com. We will try our best to reply as soon as possible.
