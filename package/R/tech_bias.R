@@ -1,5 +1,6 @@
 tech_bias=function(spikein_input, alleleA, alleleB, pdf=NULL){
   if(is.null(pdf)){pdf=TRUE}
+  num.spikein=nrow(spikein_input)
   N=apply(alleleA+alleleB,2,sum)
   lib.size=N/mean(N)
   sampname=colnames(alleleA)
@@ -19,7 +20,7 @@ tech_bias=function(spikein_input, alleleA, alleleB, pdf=NULL){
   if(pdf==TRUE){
     pdf(file='technical_bias_abkt.pdf',height=5,width=8)
     par(mfrow=c(1,2))
-    plot(log(Y),log(Q),xlab='Log(true # of molecules)',ylab='Log(observed # of reads)')
+    plot(log(Y),log(Q),xlab='Log(true # of molecules)',ylab='Log(observed # of reads)',pch=16,cex=0.6)
     abline(lmfit,col='blue',lwd=1.5)
     text(x=4,y=quantile(log(Q),0.9),paste('log(alpha) =',round(alpha,3)),col='blue')
     text(x=4,y=quantile(log(Q),0.8),paste('beta =',round(beta,3)),col='blue')
@@ -54,7 +55,7 @@ tech_bias=function(spikein_input, alleleA, alleleB, pdf=NULL){
          ylim=c(0,1),xlab='Log(true expression)',ylab='Percentage of zero reads',col='blue',lwd=1.5)
     text(x=7,y=0.9,paste('kappa =',round(kappa,3)),col='blue')
     text(x=7,y=0.8,paste('tau =',round(tau,3)),col='blue')
-    points(log(Y[1:8]),apply(as.matrix(spikein_input[,3:ncol(spikein_input)]),1,function(x){sum(x==0)/length(x)}))
+    points(log(Y[1:num.spikein]),apply(as.matrix(spikein_input[,3:ncol(spikein_input)]),1,function(x){sum(x==0)/length(x)}),pch=16,cex=0.6)
     dev.off()
     par(mfrow=c(1,1)) 
   }
