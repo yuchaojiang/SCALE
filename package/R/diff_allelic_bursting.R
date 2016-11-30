@@ -51,7 +51,7 @@ diff_allelic_bursting=function(alleleA, alleleB, cellsize, gene.category,
             Ai.cellsize=cellsize.temp[1:num.cells]
             Bi.cellsize=cellsize.temp[(num.cells+1):length(ABi)]
             
-            temp=as.data.frame(table(ceiling(Ai/bandwidth)*bandwidth))
+            temp = as.data.frame(table(pmax(0,ceiling(Ai/bandwidth) * bandwidth-bandwidth/2)))
             q.temp=as.numeric(as.matrix(temp[,1])) 
             c.temp=as.numeric(as.matrix(temp[,2])) 
             y.temp=round(exp((log(q.temp)-alpha)/beta)) 
@@ -66,7 +66,7 @@ diff_allelic_bursting=function(alleleA, alleleB, cellsize, gene.category,
             }
             Ai.corrected=rep(round(y.temp),nc.temp)
             
-            temp=as.data.frame(table(ceiling(Bi/bandwidth)*bandwidth))
+            temp = as.data.frame(table(pmax(0,ceiling(Bi/bandwidth) * bandwidth-bandwidth/2)))
             q.temp=as.numeric(as.matrix(temp[,1]))
             c.temp=as.numeric(as.matrix(temp[,2])) 
             y.temp=round(exp((log(q.temp)-alpha)/beta))
@@ -93,7 +93,7 @@ diff_allelic_bursting=function(alleleA, alleleB, cellsize, gene.category,
           }
         } else if (mode == 'corrected'){
           Ai=(alleleA[i,])/(lib.size)
-          temp=as.data.frame(table(ceiling(Ai/bandwidth)*bandwidth))
+          temp = as.data.frame(table(pmax(0,ceiling(Ai/bandwidth) * bandwidth-bandwidth/2)))
           q.temp=as.numeric(as.matrix(temp[,1])) 
           c.temp=as.numeric(as.matrix(temp[,2])) 
           y.temp=round(exp((log(q.temp)-alpha)/beta))
@@ -109,7 +109,7 @@ diff_allelic_bursting=function(alleleA, alleleB, cellsize, gene.category,
           Ai.corrected=rep(round(y.temp),nc.temp)
           
           Bi=(alleleB[i,])/(lib.size)
-          temp=as.data.frame(table(ceiling(Bi/bandwidth)*bandwidth))
+          temp = as.data.frame(table(pmax(0,ceiling(Bi/bandwidth) * bandwidth-bandwidth/2)))
           q.temp=as.numeric(as.matrix(temp[,1]))
           c.temp=as.numeric(as.matrix(temp[,2])) 
           y.temp=round(exp((log(q.temp)-alpha)/beta)) 

@@ -4,6 +4,9 @@ tech_bias=function(spikein_input, alleleA, alleleB, pdf=NULL){
   N=apply(alleleA+alleleB,2,sum)
   lib.size=N/mean(N)
   sampname=colnames(alleleA)
+  spikein_sampname=colnames(spikein_input)[3:ncol(spikein_input)]
+  lib.size=lib.size[match(spikein_sampname,sampname)]
+
   spikein_mol=spikein_input[,1]
   spikein_length=spikein_input[,2]
   spikein_read=spikein_input[,3:ncol(spikein_input)]

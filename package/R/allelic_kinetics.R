@@ -23,7 +23,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
     for(i in bursty.gene){
       # allele A
       Ai=alleleA[i,]/lib.size 
-      temp=as.data.frame(table(ceiling(Ai/bandwidth)*bandwidth))
+      temp = as.data.frame(table(pmax(0,ceiling(Ai/bandwidth) * bandwidth-bandwidth/2)))
       q.temp=as.numeric(as.matrix(temp[,1])) # binned expression
       c.temp=as.numeric(as.matrix(temp[,2])) # number of cells within each bin
       y.temp=round(exp((log(q.temp)-alpha)/beta)) # adjusted expression for each bin
@@ -43,7 +43,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
       
       # allele B
       Bi=alleleB[i,]/lib.size
-      temp=as.data.frame(table(ceiling(Bi/bandwidth)*bandwidth))
+      temp = as.data.frame(table(pmax(0,ceiling(Bi/bandwidth) * bandwidth-bandwidth/2)))
       c.temp=as.numeric(as.matrix(temp[,2]))
       q.temp=as.numeric(as.matrix(temp[,1]))
       y.temp=round(exp((log(q.temp)-alpha)/beta))
@@ -83,7 +83,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
   for(i in bursty.gene){
     # allele A
     Ai=alleleA[i,]/lib.size
-    temp=as.data.frame(table(ceiling(Ai/bandwidth)*bandwidth))
+    temp = as.data.frame(table(pmax(0,ceiling(Ai/bandwidth) * bandwidth-bandwidth/2)))
     q.temp=as.numeric(as.matrix(temp[,1])) # binned expression
     c.temp=as.numeric(as.matrix(temp[,2])) # number of cells within each bin
     y.temp=round(exp((log(q.temp)-alpha)/beta)) # adjusted expression for each bin
@@ -103,7 +103,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
     
     # allele B
     Bi=alleleB[i,]/lib.size
-    temp=as.data.frame(table(ceiling(Bi/bandwidth)*bandwidth))
+    temp = as.data.frame(table(pmax(0,ceiling(Bi/bandwidth) * bandwidth-bandwidth/2)))
     c.temp=as.numeric(as.matrix(temp[,2]))
     q.temp=as.numeric(as.matrix(temp[,1]))
     y.temp=round(exp((log(q.temp)-alpha)/beta))
