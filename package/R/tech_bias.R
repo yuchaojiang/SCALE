@@ -10,7 +10,7 @@ tech_bias=function(spikein_input, alleleA, alleleB, pdf=NULL){
 
   Y=rep(spikein_mol,ncol(spikein_read))
   lib.size.spikein=lib.size[match(colnames(spikein_input)[3:ncol(spikein_input)],sampname)]
-  Q=as.vector(spikein_read/matrix(ncol=ncol(spikein_read),nrow=nrow(spikein_read),data=lib.size.spikein,byrow=T)/matrix(ncol=ncol(spikein_read),nrow=nrow(spikein_read),data=spikein_length))*50
+  Q=as.vector(spikein_read/matrix(ncol=ncol(spikein_read),nrow=nrow(spikein_read),data=lib.size.spikein,byrow=TRUE)/matrix(ncol=ncol(spikein_read),nrow=nrow(spikein_read),data=spikein_length))*50
   Y=Y[Q!=0]
   Q=Q[Q!=0]
   lmfit=lm(log(Q)~log(Y))

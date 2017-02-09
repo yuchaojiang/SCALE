@@ -18,6 +18,19 @@ head(rownames(alleleA))
 rownames(spikein_input)
 head(colnames(spikein_input))
 
+
+####################################################
+####################################################
+##########                                ##########
+##########     technical variability      ##########
+##########                                ##########
+####################################################
+####################################################
+
+abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
+               alleleB = alleleB, pdf=TRUE)
+
+
 ####################################################
 ####################################################
 ##########                                ##########
@@ -40,18 +53,6 @@ A.prop=gene.class.obj$A.prop
 B.prop=gene.class.obj$B.prop
 gene.category=gene.class.obj$gene.category
 results.list=gene.class.obj$results.list
-
-
-####################################################
-####################################################
-##########                                ##########
-##########     technical variability      ##########
-##########                                ##########
-####################################################
-####################################################
-
-abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
-               alleleB = alleleB, pdf=TRUE)
 
 
 ####################################################
