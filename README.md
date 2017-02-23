@@ -23,12 +23,12 @@ install_github("yuchaojiang/SCALE/package")
 
 
 ## Demo code & Vignettes
-* [Demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
-* [Vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
 * Bioinformatic pipeline
   * [Calling germline heterozygous SNPs by bulk-tissue sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/bulk_SNP.sh)
   * [Force-calling allele-specific read counts at germline heterozygous loci by single-cell RNA sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/scRNAseq_SNP.sh)
   * [Generating input for exogenous spike-ins for adjustment of technical variability by single-cell RNA sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/scRNAseq_spikein.sh)
+* [SCALE: demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
+* [SCALE: vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
 
 
 ## Google user group (Q&A)
