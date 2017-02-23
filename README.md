@@ -27,8 +27,9 @@ install_github("yuchaojiang/SCALE/package")
   * [Calling germline heterozygous SNPs by bulk-tissue sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/bulk_SNP.sh)
   * [Force-calling allele-specific read counts at germline heterozygous loci by single-cell RNA sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/scRNAseq_SNP.sh)
   * [Generating input for exogenous spike-ins for adjustment of technical variability by single-cell RNA sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/scRNAseq_spikein.sh)
-* SCALE: [demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
-* SCALE: [vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
+* SCALE
+  * [demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
+  * [vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
 
 
 ## Google user group (Q&A)
@@ -37,6 +38,8 @@ If you have any questions with the package, please feel free to post in our Goog
 
 ## Citation
 Jiang, Y., Zhang, N.R., Li M., 2016. Modeling allele-specific gene expression by single-cell RNA sequencing. *Revision submitted*.
+
 [Main Manuscript (bioRxiv)](http://biorxiv.org/content/early/2017/02/17/109629.full.pdf)
+
 [Supplement (bioRxiv)](http://biorxiv.org/content/biorxiv/suppl/2017/02/17/109629.DC1/109629-1.pdf)
 
