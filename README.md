@@ -28,8 +28,8 @@ install_github("yuchaojiang/SCALE/package")
   * [Force-calling allele-specific read counts at germline heterozygous loci by single-cell RNA sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/scRNAseq_SNP.sh)
   * [Generating input for exogenous spike-ins for adjustment of technical variability by single-cell RNA sequencing](https://github.com/yuchaojiang/SCALE/blob/master/bioinfo/scRNAseq_spikein.sh)
 * SCALE
-  * [demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
-  * [vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
+  * [Demo code](https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R)
+  * [Vignettes](https://github.com/yuchaojiang/SCALE/blob/master/demo/SCALE_vignettes.pdf)
 
 
 ## Google user group (Q&A)
