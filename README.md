@@ -10,6 +10,10 @@ Yuchao Jiang, Nancy R. Zhang, Mingyao Li
 Yuchao Jiang <yuchaoj@upenn.edu>
 
 
+## License
+[GPL-3.0](https://opensource.org/licenses/GPL-3.0)
+
+
 ## Description
 SCALE is a statistical framework for **S**ingle **C**ell **AL**lelic **E**xpression analysis. SCALE estimates kinetic parameters that characterize the transcriptional bursting process at the allelic level, while accounting for technical bias and other complicating factors such as cell size. SCALE detects genes with significantly different bursting kinetics between the two alleles, as well as genes where the two alleles exhibit dependence in their bursting processes.
 
@@ -37,7 +41,7 @@ If you have any questions with the package, please feel free to post in our Goog
 
 
 ## Citation
-Jiang, Y., Zhang, N.R., Li M., 2016. Modeling allele-specific gene expression by single-cell RNA sequencing. *Revision submitted*.
+Jiang, Y., Zhang, N.R., Li M., 2016. Modeling allele-specific gene expression by single-cell RNA sequencing. *Genome Biology*, to appear, 2017.
 
 [Main Manuscript (bioRxiv)](http://biorxiv.org/content/early/2017/02/17/109629.full.pdf)
 
