@@ -1,4 +1,8 @@
 Package: SCALE
 ===================
+
+04/06/2017
+Optimized EM algorithm for gene classification.
+
 09/12/2016
 Compiled package.

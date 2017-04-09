@@ -1,15 +1,17 @@
 Package: SCALE
 Type: Package
 Title: Allele-Specific Expression by Single-Cell RNA Sequencing
-Version: 1.0.0
+Version: 1.1.0
 Author: Yuchao Jiang, Nancy R. Zhang, Mingyao Li
 Maintainer: Yuchao Jiang <yuchaoj@wharton.upenn.edu>
-Description: This package is a statistical framework for single cell allelic expression
-  analysis. SCALE estimates kinetic parameters that characterize the transcriptional
-  bursting process at the allelic level, while accounting for technical bias and
-  other complicating factors such as cell size. SCALE detects genes with 
-  significantly different bursting kinetics between the two alleles, as well as
-  genes where the two alleles exhibit dependence in their bursting processes.
+Description: Here we propose a statistical framework for single cell allelic 
+  expression analysis. This package estimates kinetic parameters that 
+  characterize the transcriptional bursting process at the allelic level, while
+  accounting for technical bias and other complicating factors such as cell 
+  size. This pacakge detects genes with significantly different bursting 
+  kinetics between the two alleles, as well as genes where the two alleles
+  exhibit dependence in their bursting processes.
 License: GPL-2
-Depends: R (>= 3.2), rje
+Depends: R (>= 3.3), rje
+Imports: grDevices, graphics, stats
 URL: https://github.com/yuchaojiang/SCALE

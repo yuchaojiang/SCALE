@@ -1,3 +1,7 @@
 export(allelic_kinetics, allelic_plot, diff_allelic_bursting, tech_bias,  Estep,
        gene_classify, Mstep, non_ind_bursting, output_table, pb.moment)
 import(rje)
+importFrom("grDevices", "dev.off", "pdf")
+importFrom("graphics", "abline", "barplot", "grid", "legend", "par", "plot",
+           "points", "text", "title")
+importFrom("stats", "cor", "dpois", "lm", "optim", "pchisq", "quantile")
