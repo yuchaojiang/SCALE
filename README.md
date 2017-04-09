@@ -16,6 +16,7 @@ SCALE is a statistical framework for **S**ingle **C**ell **AL**lelic **E**xpress
 
 ## Installation
 ```r
+install.packages("rje")
 install.packages("devtools")
 library(devtools)
 install_github("yuchaojiang/SCALE/package")
