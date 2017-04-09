@@ -37,7 +37,6 @@ diff_allelic_bursting=function(alleleA, alleleB, cellsize, gene.category,
         koffB.samp=rep(NA,nboot)
         sB.samp=rep(NA,nboot)
         
-
         if(mode=='raw'){
           Ai.obs=(alleleA[i,])/(lib.size)
           Bi.obs=(alleleB[i,])/(lib.size)

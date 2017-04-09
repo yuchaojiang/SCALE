@@ -85,7 +85,6 @@ abkt = tech_bias(spikein_input = spikein_input, alleleA = alleleA,
 silent, monoallelically expressed, and biallelically expressed (including 
 biallelically bursty). Proportions of cells expressing A and B alleles and
 gene categories are returned. Results from the first 10 genes are shown below.
-For genome-wide results, parallel computing on HPC is recommenede.
 
 <<Gene_classification>>=
 gene.class.obj = gene_classify(alleleA=alleleA[1:10,], alleleB=alleleB[1:10,])
