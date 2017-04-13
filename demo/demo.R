@@ -39,9 +39,8 @@ abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA,
 ####################################################
 ####################################################
 
-# only first 10 genes are computed
-# for genome-wide results, parallel computing on HPC is recommended
-gene.class.obj=gene_classify(alleleA=alleleA[1:10,],alleleB=alleleB[1:10,])
+# only first 20 genes are computed
+gene.class.obj=gene_classify(alleleA=alleleA[1:20,],alleleB=alleleB[1:20,])
 A.prop=gene.class.obj$A.prop
 B.prop=gene.class.obj$B.prop
 gene.category=gene.class.obj$gene.category
