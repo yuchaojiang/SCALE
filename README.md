@@ -34,7 +34,7 @@ install_github("yuchaojiang/SCALE/package")
 
 
 ## Questions & Issues
-If you have any questions with the package, it is PREFERRED that you create an issue at https://github.com/yuchaojiang/SCALE/issues. You can also post in our Google user group https://groups.google.com/d/forum/SCALE_scRNAseq or email us at SCALE_scRNAseq@googlegroups.com. We will try our best to reply as soon as we can.
+If you have any questions with the package, it is PREFERRED that you create an issue [here](https://github.com/yuchaojiang/SCALE/issues) via GitHub. You can also post in our Google user group https://groups.google.com/d/forum/SCALE_scRNAseq or email us at SCALE_scRNAseq@googlegroups.com. We will try our best to reply as soon as we can.
 
 
 ## Citation
