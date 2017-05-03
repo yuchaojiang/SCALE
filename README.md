@@ -38,9 +38,4 @@ If you have any questions with the package, it is PREFERRED that you create an i
 
 
 ## Citation
-Jiang, Y., Zhang, N.R., Li M., 2016. Modeling allele-specific gene expression by single-cell RNA sequencing. *Genome Biology*, to appear, 2017.
-
-[Main Manuscript (bioRxiv)](http://biorxiv.org/content/early/2017/02/17/109629.full.pdf)
-
-[Supplement (bioRxiv)](http://biorxiv.org/content/biorxiv/suppl/2017/02/17/109629.DC1/109629-1.pdf)
-
+Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific gene expression by single-cell RNA sequencing." Genome Biology 18.1 (2017): 74. [link](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1200-8)
