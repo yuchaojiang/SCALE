@@ -28,7 +28,7 @@ head(colnames(spikein_input))
 ####################################################
 
 abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
-               alleleB = alleleB, pdf=TRUE)
+               alleleB = alleleB, readlength = 50, pdf=TRUE)
 
 
 ####################################################

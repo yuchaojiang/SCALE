@@ -54,7 +54,7 @@ spikein_input=mouse.blastocyst$spikein_input
 data(gene.class.obj)
 gene.category=gene.class.obj$gene.category
 abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
-               alleleB = alleleB, pdf=FALSE)
+               alleleB = alleleB, readlength = 50, pdf=FALSE)
 cellsize=rep(1,ncol(alleleA))  # cell size input
 allelic.kinetics.obj=allelic_kinetics(alleleA = alleleA[1:100,], 
                                       alleleB = alleleB[1:100,], 

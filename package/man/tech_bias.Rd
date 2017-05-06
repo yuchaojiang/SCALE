@@ -9,7 +9,7 @@ Dropouts, amplification and sequencing bias are adjusted for using spike-ins as
 internal controls.
 }
 \usage{
-tech_bias(spikein_input, alleleA, alleleB, pdf=NULL)
+tech_bias(spikein_input, alleleA, alleleB, readlength, pdf=NULL)
 }
 \arguments{
     \item{spikein_input}{
@@ -21,6 +21,10 @@ tech_bias(spikein_input, alleleA, alleleB, pdf=NULL)
     \item{alleleB}{
     Matrix of B-allele expression, of dimension number of genes times number
     of cells.}
+    \item{readlength}{
+    Read length from the next-generation sequencing, which is needed to
+    calculate coverage per base pair for spike-ins.
+    }
     \item{pdf}{
     Whether a pdf plot should be generated. TRUE by default.}
 }
@@ -36,6 +40,6 @@ alleleA=mouse.blastocyst$alleleA
 alleleB=mouse.blastocyst$alleleB
 spikein_input=mouse.blastocyst$spikein_input
 abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
-               alleleB = alleleB, pdf=FALSE)
+               alleleB = alleleB, readlength = 50, pdf=FALSE)
 }
 \keyword{ package }

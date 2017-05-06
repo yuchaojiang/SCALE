@@ -1,7 +1,7 @@
 Package: SCALE
 Type: Package
 Title: Allele-Specific Expression by Single-Cell RNA Sequencing
-Version: 1.1.0
+Version: 1.2.0
 Author: Yuchao Jiang, Nancy R. Zhang, Mingyao Li
 Maintainer: Yuchao Jiang <yuchaoj@wharton.upenn.edu>
 Description: Here we propose a statistical framework for single cell allelic 
