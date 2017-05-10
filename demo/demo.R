@@ -46,7 +46,6 @@ gene.category=gene.class.obj$gene.category
 results.list=gene.class.obj$results.list
 
 
-
 ####################################################
 ####################################################
 ##########                                ##########
