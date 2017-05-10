@@ -39,7 +39,6 @@ abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA,
 ####################################################
 ####################################################
 
-# only first 20 genes are computed
 gene.class.obj=gene_classify(alleleA = as.matrix(alleleA),alleleB = as.matrix(alleleB))
 A.prop=gene.class.obj$A.prop
 B.prop=gene.class.obj$B.prop
