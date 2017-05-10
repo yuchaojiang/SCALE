@@ -46,12 +46,6 @@ gene.category=gene.class.obj$gene.category
 results.list=gene.class.obj$results.list
 
 
-data(gene.class.obj)
-A.prop=gene.class.obj$A.prop
-B.prop=gene.class.obj$B.prop
-gene.category=gene.class.obj$gene.category
-results.list=gene.class.obj$results.list
-
 
 ####################################################
 ####################################################
@@ -96,6 +90,7 @@ diff.allelic.obj=diff_allelic_bursting(alleleA = alleleA,
                                         mode = 'corrected')
 pval.kon = diff.allelic.obj$pval.kon; pval.size = diff.allelic.obj$pval.size
 
+# below is loading pre-computed testing results.
 data(diff.allelic.obj)
 pval.kon = diff.allelic.obj$pval.kon; pval.size = diff.allelic.obj$pval.size
 
