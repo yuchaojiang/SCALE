@@ -45,6 +45,14 @@ B.prop=gene.class.obj$B.prop
 gene.category=gene.class.obj$gene.category
 results.list=gene.class.obj$results.list
 
+# Below is loading pre-computed gene classification results.
+data(gene.class.obj)
+A.prop=gene.class.obj$A.prop
+B.prop=gene.class.obj$B.prop
+gene.category=gene.class.obj$gene.category
+results.list=gene.class.obj$results.list
+
+
 
 ####################################################
 ####################################################
@@ -61,6 +69,7 @@ allelic.kinetics.obj=allelic_kinetics(alleleA = alleleA[1:1000,],
                                       gene.category = gene.category[1:1000], 
                                       cellsize = cellsize, pdf=TRUE)
 
+# Below is loading pre-computed allelic kinetics.
 data(allelic.kinetics.obj)
 bandwidth=allelic.kinetics.obj$bandwidth
 konA=allelic.kinetics.obj$konA
@@ -89,7 +98,7 @@ diff.allelic.obj=diff_allelic_bursting(alleleA = alleleA,
                                         mode = 'corrected')
 pval.kon = diff.allelic.obj$pval.kon; pval.size = diff.allelic.obj$pval.size
 
-# below is loading pre-computed testing results.
+# Below is loading pre-computed testing results.
 data(diff.allelic.obj)
 pval.kon = diff.allelic.obj$pval.kon; pval.size = diff.allelic.obj$pval.size
 
