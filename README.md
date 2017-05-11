@@ -41,6 +41,6 @@ If you have any questions with the package, feel free to post in our Google user
 Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific gene expression by single-cell RNA sequencing." Genome Biology 18.1 (2017): 74. [link](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1200-8)
 
 
-## Caution (READ FIRST)
+## Caution
 * SCALE needs to be applied to a **homogeneous cell population**, where the same bursting kinetics are shared across all cells. Possible heterogeneity due to, for example, cell subgroups, lineages, and donor effects, can lead to biased downstream analysis. We find that an excessive number of significant genes showing coordinated bursting between the two alleles can be indicative of heterogeneity with the cell population, which shoud be stratified. Therefore, it is recommended that users adopt dimensionality reduction and clustering methods (e.g., t-SNE, PCA, [ZIFA](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0805-z), [RCA](http://www.nature.com/ng/journal/v49/n5/full/ng.3818.html), hierarchical clustering, [SC3](https://www.nature.com/nmeth/journal/v14/n5/full/nmeth.4236.html), etc.) on the expression matrix for clustering. SCALE can then be applied to a homogeneous cell cluster that is identified.
 
