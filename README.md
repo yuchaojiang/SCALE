@@ -48,5 +48,5 @@ Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific 
   
 * **Does SCALE require spike-in in every cell?**
 
- SCALE uses external spike-ins to estimate the technical-noise associated paramters. SCALE does not require spike-in in every cell in the experiment. As long as *some* cells from the same batch have spike-ins, they can be used to model and capture the dropout events and the amplification and sequencing biases during the library prep step. Make sure that the column names of spikein_input match as a subset of the column names of alleleA and alleleB matrices.
+ SCALE uses external spike-ins to estimate the technical-noise associated paramters. SCALE does not require spike-in in every cell in the experiment. As long as *some* cells from the same batch have spike-ins, they can be used to model and capture the dropout events and the amplification and sequencing biases during the library prep step. Make sure that the column names of spikein_input are the same as (a subset of) those of alleleA and alleleB.
 
