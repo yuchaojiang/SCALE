@@ -58,6 +58,6 @@ Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific 
 
 * **How do I compute cell size?**
 
- Cell size can be inferred from the *GAPDH* expression levels (with adjustment of library size factor which is just due to sequencing depth rather than cell size difference, see first equation under Methods section in our paper) or the ratio of endogenous reads over the total number of spike-in reads. For consistency, these two measurements should NOT combine these two together.
+ Cell size can be inferred from the *GAPDH* expression levels (with adjustment of library size factor which is just due to sequencing depth rather than cell size difference, see first equation under Methods section in our paper) or the ratio of endogenous reads over the total number of spike-in reads. For consistency, these two measurements should NOT be combined together.
 
  To correctly calculate the cell size factor baed on sequencing reads alone isn’t trivial. We are hoping that there could be measurements available from the single cell isolation machine (e.g., Fluidigm C1) soon. We recommend first estimating the bursting kinetics with all cell size factors set to 1. After this, one can try again using the estimated cell size factors. The correlations between the bursting kinetics of the two alleles can serve as a good sanity check (on the genome wide scale, they should be correlated with a fairly decent correlation coefficient).
