@@ -39,3 +39,9 @@ If you have any questions with the package, feel free to post in our Google user
 
 ## Citation
 Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific gene expression by single-cell RNA sequencing." Genome Biology 18.1 (2017): 74. [link](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1200-8)
+
+
+## Caution (READ FIRST)
+* SCALE needs to be applied to a homogeneous cell population, where the same bursting kinetics are shared across all cells. Possible heterogeneity due to different cell subgroups, lineages, donor effect, etc., can lead to biased downstream analysis, especially a overestimation of coordinated bursting.
+
+
