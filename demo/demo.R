@@ -27,8 +27,8 @@ head(colnames(spikein_input))
 ####################################################
 ####################################################
 
-# Make sure the column names of spikein_input correspond to a subset
-# of those of alleleA and alleleB.
+# Make sure the column names of spikein_input correspond to (a subset of)
+# those of alleleA and alleleB.
 abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
                alleleB = alleleB, readlength = 50, pdf=TRUE)
 
