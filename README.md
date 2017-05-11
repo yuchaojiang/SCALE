@@ -60,7 +60,7 @@ Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific 
 
 * **Which quality control procedures should I adopt?**
 
- Quality control procedures are recommended to filter out both extreme cells and genes. Some metrics may include: library size factor (see first equation under Methods in our paper), PCA results (to remove cell outliers or heterogeneity), allelic ratios (standard deviation of a gene across all cells), ratio of reads that map to spike-ins versus endogenous genes (i.e., cells with extreme cell sizes), and true number of spike-in molecules (first column of spikein_input, where spike-ins with small number of molecules should be removed).
+ Quality control procedures are recommended to filter out both extreme cells and genes. Some metrics may include: library size factor (see first equation under Methods in our paper), PCA result (to remove cell outliers or heterogeneity), allelic ratio (standard deviation of a gene across all cells), ratio of reads that map to spike-ins versus endogenous genes (i.e., cells with extreme cell sizes), and true number of spike-in molecules (first column of spikein_input, where spike-ins with small number of molecules should be removed).
  
 
 * **Monoallelic expression?**
