@@ -63,4 +63,7 @@ Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific 
 
 * **Monoallelic expression?**
 
+ In this paper, a *gene* is monoallelically expressed, if only one allele is expressed in a nonzero proportion of the cells. The gene categorization is carried out through the empirical Bayes framework outlined in our paper. While SCALE is focused on detecting differential bursting kinetics between the two alleles, monoallelic expression is an extreme case where one allele is completely off (i.e., with infinitely large burst frequency). We don't infer bursting kinetics (there is no way nor need to do so) or perform hypothesis testings on these monoallelically expressed genes. However, we think these genes are just as if not more important in biology. The gene categorization results are included in the table genrated in the last step of SCALE.
+ 
+ 
 
