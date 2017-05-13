@@ -40,7 +40,7 @@ If you have any questions with the package, feel free to post in our Google user
 
 
 ## Citation
-Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific gene expression by single-cell RNA sequencing." Genome Biology 18.1 (2017): 74. [link](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1200-8)
+Yuchao Jiang, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific gene expression by single-cell RNA sequencing." Genome Biology 18.1 (2017): 74. [link](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1200-8)
 
 
 ## Common questions
