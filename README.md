@@ -50,6 +50,8 @@ Jiang, Yuchao, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific 
 
  SCALE uses external spike-ins to estimate the technical-noise associated paramters. SCALE does not require spike-in in every cell in the experiment. As long as *some* cells from the same batch have spike-ins, they can be used to model and capture the dropout events and the amplification and sequencing biases during the library prep step. Make sure that the column names of spikein_input are the same as (a subset of) those of alleleA and alleleB.
 
+ The technical noise associated parameters include: 𝛼_𝑐 which models the capture and sequencing efficiency; 𝛽_𝑐 which models the amplification bias; 𝜅_𝑐 and 𝜏_𝑐 which characterize whether a transcript is successfully captured in the library. To estimate 𝛼_𝑐 and 𝛽_𝑐, SCALE uses the external spike-ins to fit a log-linear regression with the true number of molecules as response and the observed number of reads per locus as predictor.
+
 
 * **How do I compute cell size?**
 
