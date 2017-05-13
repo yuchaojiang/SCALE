@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage[USletter]{vmargin}
-\setmargrb{1in}{0.75in}{1in}{0.75in}
+\setmargrb{1in}{0.5in}{1in}{0.5in}
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{color}
@@ -26,22 +26,25 @@ bursting kinetics between the two alleles, as well as genes where the two
 alleles exhibit dependence in their bursting processes.\\
 
 \verb@SCALE@'s \textbf{webpage} is \href{https://github.com/yuchaojiang/SCALE}{\textcolor{blue}{here}}. 
-A \textbf{demo code} can be found \href{https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R}{\textcolor{blue}{here}}. Online \textbf{Q\&A forum} for
-\verb@SCALE@ is available \href{https://groups.google.com/d/forum/SCALE_scRNAseq}{\textcolor{blue}{here}}. If you've any questions regarding the software, you can also email us at
+A \textbf{demo code} can be found \href{https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R}{\textcolor{blue}{here}}. Online \textbf{Q\&A Google Group} for
+\verb@SCALE@ is available \href{https://groups.google.com/d/forum/SCALE_scRNAseq}{\textcolor{blue}{here}}. If you've any questions with regard to the software, you can also email us at \\
 \href{mailto:SCALE\_scRNAseq@googlegroups.com}{\textcolor{blue}{SCALE\_scRNAseq@googlegroups.com}}.\\
 
-\section*{1. Installation}
+\section{Installation}
 
 R package \verb$SCALE$ is availble from GitHub ((\href{https://github.com/yuchaojiang/SCALE}{https://github.com/yuchaojiang/SCALE}):
 <<Installation, eval=FALSE>>=
+install.packages("rje")
+install.packages("tsne")
+install.packages("scatterplot3d")
 install.packages("devtools")
 library(devtools)
 install_github("yuchaojiang/SCALE/package")
 @
 
 
-\section*{2. SCALE workflow}
-\subsection*{2.1 Data input}
+\section{SCALE workflow}
+\subsection{Data input}
 The input to \verb@SCALE@ includes allele-specific read counts at heterozygous 
 loci from single-cell RNA sequencing. The cells should be of the same cell types
 from the same tissue (i.e., they are homogeneous). Cell-wise quality control 
@@ -70,7 +73,12 @@ rownames(spikein_input)
 head(colnames(spikein_input))
 @
 
-\subsection*{2.2 Technical variability}
+\subsection{Quality control and data cleaning}
+\textbf{\textit{Quality control}} procedures are recommended to filter out both extreme cells and genes before applying SCALE. Some metrics may include: library size factor (see first equation under Methods in our paper), PCA result (to remove cell outliers or heterogeneity), allelic ratio (standard deviation of a gene across all cells), ratio of reads that map to spike-ins versus endogenous genes (i.e., cells with extreme cell sizes), and true number of spike-in molecules (first column of spikein\_input, where spike-ins with small number of molecules should be removed). Sample code for QC can be found \href{https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R}{\textcolor{blue}{here}}.
+
+Furthermore, SCALE needs to be applied to a \textbf{\textit{homogeneous}} cell population, where the same bursting kinetics are shared across all cells. Possible heterogeneity due to, for example, cell subgroups, lineages, and donor effects, can lead to biased downstream analysis. We find that an excessive number of significant genes showing coordinated bursting between the two alleles can be indicative of heterogeneity with the cell population, which shoud be further stratified. Therefore, it is strongly recommended that the users adopt dimensionality reduction and clustering methods (e.g., t-SNE, PCA, ZIFA, RCA, hierarchical clustering, SC3, etc.) on the expression matrix for clustering. SCALE can then be applied to a homogeneous cell cluster that is identified. Sample code for check on data homogeneity can be found \href{https://github.com/yuchaojiang/SCALE/blob/master/demo/demo.R}{\textcolor{blue}{here}}.
+
+\subsection{Technical variability}
 A hierarchical model based on TASC (Toolkit for Analysis of Single Cell data) is
 fit to the spike-in data. Parameters $\{\alpha,\beta,\kappa,\tau\}$ associated 
 with dropouts, amplification and sequencing bias are returned. A pdf plot is
@@ -80,7 +88,7 @@ abkt = tech_bias(spikein_input = spikein_input, alleleA = alleleA,
                  alleleB = alleleB, readlength = 50, pdf = TRUE)
 @
 
-\subsection*{2.3 Gene classification}
+\subsection{Gene classification}
 \verb@SCALE@ adopts a Bayes framework that categorizes each gene into being 
 silent, monoallelically expressed, and biallelically expressed (including 
 biallelically bursty). Proportions of cells expressing A and B alleles and
@@ -102,7 +110,7 @@ gene.category = gene.class.obj$gene.category
 results.list = gene.class.obj$results.list
 @
 
-\subsection*{2.4 Allele-specific bursting kinetics}
+\subsection{Allele-specific bursting kinetics}
 The two alleles of a gene have two Poisson-Beta distributions with respective 
 parameters. These two Poisson-Beta distributions share the same cell-size
 factor. Cell-size factor can be estimated by the expression level of \textit{GAPDH}
@@ -175,7 +183,7 @@ sizeA=sA/koffA
 sizeB=sB/koffB
 @
 
-\subsection*{2.5 Hypothesis testing}
+\subsection{Hypothesis testing}
 Nonparametric hypothesis test and chi-square test are carried out to test 
 whether the two alleles of a gene share the same bursting kinetics and whether
 they burst independently. For test of same burst size and burst frequency 
@@ -209,7 +217,7 @@ non.ind.obj = non_ind_bursting(alleleA = alleleA, alleleB = alleleB,
 pval.ind = non.ind.obj$pval.ind; non.ind.type = non.ind.obj$non.ind.type
 @
 
-\subsection*{2.6 Plot and output}
+\subsection{Plot and output}
 For each gene, a plot (pdf format) can be generated with inferred parameters as
 well as summary statistics, as is shown in Figure 2.\\
 <<plot_gene, eval = FALSE>>=
@@ -302,12 +310,11 @@ write.table(SCALE.output, file = 'SCALE.output.txt', col.names = TRUE,
 @
 
 
-\section*{3. Citation}
-Modeling allele-specific gene expression by single-cell RNA sequencing,
-Yuchao Jiang, Nancy R zhang, Mingyao Li, \textit{submitted}, 2016.
+\section{Citation}
+Yuchao Jiang, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific gene expression by single-cell RNA sequencing." \textit{Genome Biology} 18.1 (2017): 74. \href{https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1200-8}{\textcolor{blue}{link}}
 
 
-\section*{4. Session information:}
+\section{Session information:}
 Output of sessionInfo on the system on which this document was compiled:
 
 <<sessionInfo, results=tex, echo=FALSE>>=

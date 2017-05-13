@@ -1,6 +1,9 @@
 Package: SCALE
 ===================
 
+05/13/2017
+Added quality control and check on heterogeneity.
+
 05/05/2017
 Fixed bugs by read length in estimating technical-noise associated parameters.
 

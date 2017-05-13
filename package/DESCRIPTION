@@ -1,7 +1,7 @@
 Package: SCALE
 Type: Package
 Title: Allele-Specific Expression by Single-Cell RNA Sequencing
-Version: 1.2.0
+Version: 1.3.0
 Author: Yuchao Jiang, Nancy R. Zhang, Mingyao Li
 Maintainer: Yuchao Jiang <yuchaoj@wharton.upenn.edu>
 Description: Here we propose a statistical framework for single cell allelic 
@@ -12,6 +12,6 @@ Description: Here we propose a statistical framework for single cell allelic
   kinetics between the two alleles, as well as genes where the two alleles
   exhibit dependence in their bursting processes.
 License: GPL-2
-Depends: R (>= 3.3), rje
+Depends: R (>= 3.3), rje, tsne, scatterplot3d
 Imports: grDevices, graphics, stats
 URL: https://github.com/yuchaojiang/SCALE

@@ -22,6 +22,81 @@ head(colnames(spikein_input))
 ####################################################
 ####################################################
 ##########                                ##########
+##########        quality control         ##########
+##########                                ##########
+####################################################
+####################################################
+
+N = apply(alleleA + alleleB, 2, sum)
+lib.size = N/mean(N)
+spikein_read=spikein_input[,-(1:2)]
+# remove cells with extreme library size factors
+lib.size.filter=(lib.size>0.5 & lib.size < 2.5)
+alleleA=alleleA[,lib.size.filter]; alleleB=alleleB[,lib.size.filter]
+N = apply(alleleA + alleleB, 2, sum)
+lib.size = N/mean(N)
+spikein_read=spikein_read[,lib.size.filter[colnames(spikein_read)]]
+
+# remove cells with extreme ratios of spike-in versus endogenous reads
+endo_readA=alleleA[,colnames(spikein_read)] # endogenous reads from allele A
+endo_readB=alleleB[,colnames(spikein_read)] # endogenous reads from allele B
+ratio=apply(spikein_read,2,sum)/apply(endo_readA+endo_readA,2,sum)
+ratio.filter=(ratio >0.05 & ratio < 3)
+alleleA=alleleA[,is.na(match(colnames(alleleA),colnames(spikein_read)[!ratio.filter]))]
+alleleB=alleleB[,is.na(match(colnames(alleleB),colnames(spikein_read)[!ratio.filter]))]
+N = apply(alleleA + alleleB, 2, sum)
+lib.size = N/mean(N)
+spikein_read=spikein_read[,ratio.filter]
+spikein_input=cbind(spikein_input[,1:2],spikein_read)
+
+
+####################################################
+####################################################
+##########                                ##########
+##########          heterogeneity         ##########
+##########                                ##########
+####################################################
+####################################################
+
+# SCALE needs to be applied to a homogeneous population of cells.
+# Below is sanity check on data heterogeneity using PCA and t-SNE.
+
+read=alleleA+alleleB
+lib.size.factor=matrix(ncol=ncol(read),nrow=nrow(read),apply(read,2,sum)/mean(apply(read,2,sum)),byrow=T)
+read=read/lib.size.factor # adjust for sequencing depth
+AR=alleleA/(alleleA+alleleB)
+
+AR=AR[apply(read,1,sum)>10,] # remove silent, lowly expressed genes
+read=read[apply(read,1,sum)>10,]
+
+AR=as.matrix(AR[apply(read,1,sd)>quantile(apply(read,1,sd),0.9),]) # select for highly variable genes
+read=as.matrix(read[apply(read,1,sd)>quantile(apply(read,1,sd),0.9),])
+
+# SVD and t-SNE on total coverage
+svd.read=svd(read)
+plot(svd.read$v[,1], svd.read$v[,2], xlab='PC1',ylab='PC2')
+scatterplot3d(svd.read$v[,1], svd.read$v[,2], svd.read$v[,3],
+              xlab='PC1',ylab='PC2',zlab='PC3')
+tsne_read=tsne(t(read),k=3,initial_dims=30)
+plot(tsne_read[,1],tsne_read[,2],xlab='tSNE1',ylab='tSNE2')
+scatterplot3d(tsne_read[,1],tsne_read[,2],tsne_read[,3],
+              xlab='tSNE1',ylab='tSNE2',zlab='tSNE3')
+
+# SVD and t-SNE on allelic ratio (AR)
+AR=AR[!apply(is.nan(AR),1,any),]
+svd.AR=svd(AR)
+plot(svd.AR$v[,1], svd.AR$v[,2], xlab='PC1',ylab='PC2')
+scatterplot3d(svd.AR$v[,1], svd.AR$v[,2], svd.AR$v[,3],
+              xlab='PC1',ylab='PC2',zlab='PC3')
+tsne_AR=tsne(t(AR),k=3,initial_dims=30)
+plot(tsne_AR[,1],tsne_AR[,2],xlab='tSNE1',ylab='tSNE2')
+scatterplot3d(tsne_AR[,1],tsne_AR[,2],tsne_AR[,3],
+              xlab='tSNE1',ylab='tSNE2',zlab='tSNE3')
+
+
+####################################################
+####################################################
+##########                                ##########
 ##########     technical variability      ##########
 ##########                                ##########
 ####################################################
@@ -30,7 +105,7 @@ head(colnames(spikein_input))
 # Make sure the column names of spikein_input correspond to (a subset of)
 # those of alleleA and alleleB.
 abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA, 
-               alleleB = alleleB, readlength = 50, pdf=TRUE)
+               alleleB = alleleB, readlength = 50, pdf=FALSE)
 
 
 ####################################################
@@ -41,7 +116,9 @@ abkt=tech_bias(spikein_input=spikein_input, alleleA = alleleA,
 ####################################################
 ####################################################
 
-gene.class.obj=gene_classify(alleleA = as.matrix(alleleA),alleleB = as.matrix(alleleB))
+# Only first 200 genes are computed for demonstration.
+gene.class.obj=gene_classify(alleleA = as.matrix(alleleA[1:200,]),
+                             alleleB = as.matrix(alleleB[1:200,]))
 A.prop=gene.class.obj$A.prop
 B.prop=gene.class.obj$B.prop
 gene.category=gene.class.obj$gene.category
@@ -53,7 +130,6 @@ A.prop=gene.class.obj$A.prop
 B.prop=gene.class.obj$B.prop
 gene.category=gene.class.obj$gene.category
 results.list=gene.class.obj$results.list
-
 
 
 ####################################################
