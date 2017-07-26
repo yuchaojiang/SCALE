@@ -77,7 +77,7 @@ svd.read=svd(read)
 plot(svd.read$v[,1], svd.read$v[,2], xlab='PC1',ylab='PC2')
 scatterplot3d(svd.read$v[,1], svd.read$v[,2], svd.read$v[,3],
               xlab='PC1',ylab='PC2',zlab='PC3')
-tsne_read=tsne(t(read),k=3,initial_dims=30)
+tsne_read=tsne(t(read),k=3,initial_dims=30) # If this takes too long, select highly variable genes/SNPs.
 plot(tsne_read[,1],tsne_read[,2],xlab='tSNE1',ylab='tSNE2')
 scatterplot3d(tsne_read[,1],tsne_read[,2],tsne_read[,3],
               xlab='tSNE1',ylab='tSNE2',zlab='tSNE3')
@@ -88,7 +88,7 @@ svd.AR=svd(AR)
 plot(svd.AR$v[,1], svd.AR$v[,2], xlab='PC1',ylab='PC2')
 scatterplot3d(svd.AR$v[,1], svd.AR$v[,2], svd.AR$v[,3],
               xlab='PC1',ylab='PC2',zlab='PC3')
-tsne_AR=tsne(t(AR),k=3,initial_dims=30)
+tsne_AR=tsne(t(AR),k=3,initial_dims=30) # If this takes too long, select highly variable genes/SNPs.
 plot(tsne_AR[,1],tsne_AR[,2],xlab='tSNE1',ylab='tSNE2')
 scatterplot3d(tsne_AR[,1],tsne_AR[,2],tsne_AR[,3],
               xlab='tSNE1',ylab='tSNE2',zlab='tSNE3')
