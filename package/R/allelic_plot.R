@@ -38,7 +38,7 @@ allelic_plot=function(alleleA,alleleB,gene.class.obj, allelic.kinetics.obj,
   legend('topleft',col=c('red'),legend=c('A allele'),pch=15,bty='n')
   legend('topright',y=1,col=c('blue'),legend=c('B allele'),pch=15,bty='n')
   text(x=0.5,y=0.8,paste('Gene category :',gene.category[i]))
-  text(x=0.5,y=0.65,paste('Number of cells:',paste(names(results.list[[1]]),results.list[[1]],collapse = '; ')))
+  text(x=0.5,y=0.65,paste('Number of cells:',paste(names(results.list[[i]]),results.list[[i]],collapse = '; ')))
   if(gene.category[i]=='Biallelic.bursty'){
     text(x=0.5,y=0.5,paste('konA =',round(konA[i],3),'sizeA =',round(sizeA[i],3)))
     text(x=0.5,y=0.4,paste('konB =',round(konB[i],3),'sizeB =',round(sizeB[i],3)))
