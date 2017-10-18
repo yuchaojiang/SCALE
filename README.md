@@ -7,7 +7,7 @@ Yuchao Jiang, Nancy R. Zhang, Mingyao Li
 
 
 ## Maintainer
-Yuchao Jiang <yuchaoj@upenn.edu>
+Yuchao Jiang <yuchaoj@email.unc.edu>
 
 
 ## Description
