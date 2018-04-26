@@ -40,7 +40,7 @@ spikein_read=spikein_read[,lib.size.filter[colnames(spikein_read)]]
 # remove cells with extreme ratios of spike-in versus endogenous reads
 endo_readA=alleleA[,colnames(spikein_read)] # endogenous reads from allele A
 endo_readB=alleleB[,colnames(spikein_read)] # endogenous reads from allele B
-ratio=apply(spikein_read,2,sum)/apply(endo_readA+endo_readA,2,sum)
+ratio=apply(spikein_read,2,sum)/apply(endo_readA+endo_readB,2,sum)
 ratio.filter=(ratio >0.05 & ratio < 3)
 alleleA=alleleA[,is.na(match(colnames(alleleA),colnames(spikein_read)[!ratio.filter]))]
 alleleB=alleleB[,is.na(match(colnames(alleleB),colnames(spikein_read)[!ratio.filter]))]
