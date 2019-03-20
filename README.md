@@ -56,6 +56,13 @@ Yuchao Jiang, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific g
  
  Note: Sometimes there can be a “poor" fitting of 𝜅 and 𝜏, as compared to Supplementary Figure S5 in our paper. This is due to low sequencing depth as well as low amplification efficiency in the library prep and the sequencing procedure. These are reflected by small 𝛼 and 𝛽 terms, which results in the 𝛼*(Y^𝛽) being much smaller than Y and even significantly smaller than 1 for the lowly spiked-in molecules or lowly expressed endogenous genes. In this case, when sequencing is performed, no matter whether the transcript is dropped out (modeled by 𝜅 and 𝜏) or not, it will almost always result in a zero from the Poisson sampling. This will result in a large estimate of 𝜅 and 𝜏 by SCALE, with the rate pi = expit(kappa + tau * log(Y)) being almost always 1 meaning that there is no drop out but rather the zeros are from Poisson sampling with a small lambda = 𝛼*(Y^𝛽). However, this doesn’t mean there is no dropout — it simply means that the sequencing depth followed by the amplification is so low that we cannot estimate dropout using spike-ins (aka, 𝜅 and 𝜏 are not identifiable). We've carried out empirical analysis and showed that this issue does not affect the downstream analysis of bursting kinetics, since the lowly expressed transcript results in zero read counts will be modeled and captured, whether it is due to Poisson sampling or dropout events.
 
+* **What if I don't have spike-ins in my scRNA-seq dataset?**
+
+ If you do not have spike-ins in your scRNA-seq dataset, you should still adopt other denoising/imputation methods for data normalization. The technical dropout affects the estimation of burst frequency and the amplification (and potentially sequencing) bias affects the estimation of burst size. Suppose you have a normalized gene expression matrix, you can pre-specify log(alpha), beta, kappa, and tau to be log(1), 1, -10000, 0 so that SCALE does not perform another round of normalization.
+
+`
+abkt = c(0, 1, 10000, 0); names(abkt) = c("log(alpha)", "beta", "kappa", "tau")
+`
 
 * **How do I compute cell size?**
 
@@ -74,4 +81,3 @@ Yuchao Jiang, Nancy R. Zhang, and Mingyao Li. "SCALE: modeling allele-specific g
  In this paper, a *gene* is categorized to be monoallelically expressed, if only one allele is expressed in a nonzero proportion of cells. Gene categorization is carried out through the empirical Bayes framework outlined in our paper. While SCALE is focused on detecting differential bursting kinetics between the two alleles, monoallelic expression is an extreme case where one allele is completely off (which is equivalent to having an infinitely large burst frequency). We don't infer bursting kinetics -- there is no way nor need to do so -- or perform hypothesis testings on these monoallelically expressed genes. However, we think these genes are just as, if not more, important in biology. The gene categorization results are included in the table generated in the last step of SCALE.
  
  
-
