@@ -27,7 +27,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
       q.temp=as.numeric(as.matrix(temp[,1])) # binned expression
       c.temp=as.numeric(as.matrix(temp[,2])) # number of cells within each bin
       y.temp=round(exp((log(q.temp)-alpha)/beta)) # adjusted expression for each bin
-      p.temp=expit(kappa+tau*log(y.temp))  # probability of dropout for each bin
+      p.temp=expit(kappa+tau*log(pmax(0.001,y.temp))) # probability of dropout for each bin
       nc.temp=round(c.temp/p.temp) # adjusted number of cells within each adjusted expression bin
       if(sum(nc.temp[-1])>num.cells){
         loc.temp=which(rev(cumsum(rev(nc.temp)))>num.cells)
@@ -47,7 +47,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
       c.temp=as.numeric(as.matrix(temp[,2]))
       q.temp=as.numeric(as.matrix(temp[,1]))
       y.temp=round(exp((log(q.temp)-alpha)/beta))
-      p.temp=expit(kappa+tau*log(y.temp)) 
+      p.temp=expit(kappa+tau*log(pmax(0.001,y.temp))) 
       nc.temp=round(c.temp/p.temp)
       if(sum(nc.temp[-1])>num.cells){
         loc.temp=which(rev(cumsum(rev(nc.temp)))>num.cells)
