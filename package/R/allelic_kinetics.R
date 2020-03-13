@@ -62,7 +62,7 @@ allelic_kinetics=function(alleleA,alleleB,abkt,gene.category,cellsize,pdf=NULL){
       sB[i]=pb.temp[3]
     }
     
-    sel1=(sA>10)&(sB>10)&(koffA>0)&(koffB>0)
+    sel1=(sA>0)&(sB>0)&(koffA>0)&(koffB>0)
     sel2=konA>0 & konB>0
     sel=sel1&sel2
     
